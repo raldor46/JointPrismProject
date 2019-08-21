@@ -4,5 +4,32 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="JointPrismProject.Views.EditClientPage">
-  
+    <StackLayout VerticalOptions="CenterAndExpand" Margin="6">
+        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Margin="2">
+            <Label Text="Name:" FontSize="Large"/>
+            <Entry Text="{Binding Client.Name}" HorizontalOptions="FillAndExpand" FontSize="Large"/>
+        </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Margin="2">
+            <Label Text="Phone:" FontSize="Large"/>
+            <Entry Text="{Binding Client.Phone}" HorizontalOptions="FillAndExpand" FontSize="Large" Keyboard="Telephone"/>
+        </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Margin="2">
+            <Label Text="Address:" FontSize="Large"/>
+            <Editor Text="{Binding Client.Address}" HorizontalOptions="FillAndExpand" FontSize="Large" HeightRequest="100"/>
+        </StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Save"
+                    BackgroundColor="LightGray"
+                    Command="{Binding cmdSave}"
+                    Grid.Column="0"/>
+            <Button Text="Delete"
+                    BackgroundColor="IndianRed"
+                    Command="{Binding cmdDelete}"
+                    Grid.Column="1"/>
+        </Grid>
+    </StackLayout>
 </ContentPage>

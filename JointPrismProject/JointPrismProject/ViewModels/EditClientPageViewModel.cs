@@ -33,7 +33,10 @@ namespace JointPrismProject.ViewModels
         public DelegateCommand<object> cmdDelete { get; private set; }
         async void DeleteClient(object parameter)
         {
-            await DatabaseService.ClientDatabase.DeleteClientAsync(Client);
+            if(Client.ID != 0)
+            {
+                await DatabaseService.ClientDatabase.DeleteClientAsync(Client);
+            }
             await NavigationService.GoBackToRootAsync();
         }
         #endregion
